@@ -6,7 +6,6 @@ from nltk import pos_tag
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from string import punctuation
-from gensim.parsing.preprocessing import STOPWORDS
 import pandas as pd
 
 nltk.download('wordnet')
@@ -15,7 +14,7 @@ nltk.download('punkt_tab')
 nltk.download('averaged_perceptron_tagger_eng')
 
 lemmatizer = WordNetLemmatizer()
-stop_words = STOPWORDS | set(stopwords.words('english'))
+stop_words = set(stopwords.words('english'))
 negation_words = {"not", "no", "never", "neither", "nor", "but", "however", "although"}
 stop_words = stop_words - negation_words
 
