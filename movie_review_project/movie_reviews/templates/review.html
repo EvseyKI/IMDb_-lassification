@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Review Submission</title>
+</head>
+<body>
+    <h1>Movie Review Submission</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
+
+    {% if review %}
+        <h2>Review Submitted!</h2>
+        <p>Rating: {{ review.rating }}</p>
+        <p>Sentiment: {{ review.sentiment }}</p>
+    {% endif %}
+</body>
+</html>
